@@ -1,4 +1,4 @@
-#Łukasz Kwaśniowski - LAB02, Ćw 1
+#Łukasz Kwaśniowski - LAB03, Ćw 1
 
 import base64
 
