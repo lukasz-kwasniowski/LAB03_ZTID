@@ -1,0 +1,29 @@
+import random
+import string
+
+def generate_secure_password():
+
+    #Deklaracja znaków specjalnych
+    special_characters = "!@#$%^&*()_-+=<>?/{}[]|"
+
+    #Deklaracja "wszystkich znaków" (dostępnych w bibliotece "string" + znaków specjalnych)
+    all_characters = string.ascii_letters + string.digits + special_characters
+
+    #tworzenie długości hasla (od 8 do 20)
+    password_length = random.randint(8, 20)
+    
+    #tworzenie hasła dopóki nie będzie zawierać odpowiednich warunków
+    while True:
+        password = ''.join(random.choice(all_characters) for _ in range(password_length))
+        
+        #warunki które muszą być spełnione
+        if (any(c.isupper() for c in password) and
+            any(c.islower() for c in password) and
+            any(c.isdigit() for c in password) and
+            any(c in special_characters for c in password) and
+            len(password) >= 8):
+
+            return password
+
+secure_password = generate_secure_password()
+print("Bezpieczne hasło:", secure_password)
